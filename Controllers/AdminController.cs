@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Itsomax.Module.MonitorDBAdmin.Controllers
+namespace Itsomax.Module.ItsomaxAdmin.Controllers
 {
     [Authorize(Policy = "ManageAuthentification")]
     public class AdminController : Controller
