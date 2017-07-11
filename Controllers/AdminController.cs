@@ -2,12 +2,13 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Itsomax.Module.MonitorDBAdmin.Controllers
+namespace Itsomax.Module.ItsomaxAdmin.Controllers
 {
     [Authorize(Policy = "ManageAuthentification")]
     public class AdminController : Controller
     {
-        public IActionResult Index()
+        
+        public IActionResult WelcomePage()
         {
             return View();
         }
@@ -18,6 +19,11 @@ namespace Itsomax.Module.MonitorDBAdmin.Controllers
         }
 
         public IActionResult LogOff()
+        {
+            return View();
+        }
+        [AllowAnonymous]
+        public IActionResult AccessDenied()
         {
             return View();
         }
