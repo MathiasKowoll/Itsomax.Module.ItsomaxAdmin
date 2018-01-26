@@ -6,12 +6,12 @@ namespace Itsomax.Module.ItsomaxAdmin.Controllers
 {
     [Authorize(Policy = "ManageAuthentification")]
     public class AdminController : Controller
-    {
-        
+    {    
         public IActionResult WelcomePage()
         {
             return View();
         }
+        /*
         [AllowAnonymous]
         public IActionResult Login()
         {
@@ -22,6 +22,7 @@ namespace Itsomax.Module.ItsomaxAdmin.Controllers
         {
             return View();
         }
+        */
         [AllowAnonymous]
         public IActionResult AccessDenied()
         {
