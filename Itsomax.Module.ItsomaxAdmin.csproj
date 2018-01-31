@@ -8,6 +8,6 @@
   <ItemGroup>
     <PackageReference Update="Microsoft.NETCore.App" Version="2.0.5" />
     <PackageReference Include="Itsomax.Data.Infrastructure" Version="1.0.4" />
-    <PackageReference Include="Itsomax.Module.Core" Version="1.0.8" />
+    <PackageReference Include="Itsomax.Module.Core" Version="1.0.10" />
   </ItemGroup>
 </Project>
