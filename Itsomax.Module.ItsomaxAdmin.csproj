@@ -6,16 +6,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <EmbeddedResource Remove="Resources\Controllers.AdminController.es-ES.resx" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="Resources\Controllers.AdminController.es-ES.resx">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Itsomax.Module.Core\Itsomax.Module.Core.csproj" />
   </ItemGroup>
 
