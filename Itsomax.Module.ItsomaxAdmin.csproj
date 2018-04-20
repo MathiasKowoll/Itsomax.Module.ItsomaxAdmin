@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     
@@ -6,10 +6,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <EmbeddedResource Remove="Resources\Controllers.AdminController.es-ES.resx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Resources\Controllers.AdminController.es-ES.resx">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Itsomax.Module.Core\Itsomax.Module.Core.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Update="Microsoft.NETCore.App" Version="2.1.0-preview1-26216-03" />
+    <PackageReference Update="Microsoft.NETCore.App" Version="2.1.0-preview2-26406-04" />
   </ItemGroup>
 </Project>
