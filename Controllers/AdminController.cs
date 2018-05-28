@@ -1,4 +1,6 @@
 
+using System.Collections.Generic;
+using Itsomax.Module.Core.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Localization;
@@ -11,12 +13,14 @@ namespace Itsomax.Module.ItsomaxAdmin.Controllers
     {       
         private readonly IStringLocalizer<AdminController> _localizer;
         private readonly ILogger<AdminController> _logger;
+        private readonly IEmailService _sendEmail;
 
         public AdminController(IStringLocalizer<AdminController> localizer,
-            ILogger<AdminController> logger)
+            ILogger<AdminController> logger, IEmailService sendEmail)
         {
             _localizer = localizer;
             _logger = logger;
+            _sendEmail = sendEmail;
         }
 
         public IActionResult WelcomePage()
@@ -28,6 +32,17 @@ namespace Itsomax.Module.ItsomaxAdmin.Controllers
         public IActionResult AccessDenied()
         {
             return View();
+        }
+
+        public IActionResult TestEmail()
+        {
+            IList<string> emails = new List<string>();
+            emails.Add("XXXX@somemail.com");
+            var res =_sendEmail.SmtpSendEmail(emails, "test email", "This is a test email using gmail", "smtp.gmail.com",
+                "xxxx@gmail.com", "xxx@gmail.com", "password", true, 587,
+                "xxx@gmail.com");
+            
+            return View("WelcomePage");
         }
     }
 }
