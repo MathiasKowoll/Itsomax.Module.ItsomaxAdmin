@@ -4,6 +4,6 @@ namespace Itsomax.Module.ItsomaxAdmin.Services
 {
     class ConfigureSystem : IConfigureSystem
     {
-        //public 
+        //public succ 
     }
 }
