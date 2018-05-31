@@ -6,6 +6,6 @@
     <ProjectReference Include="..\Itsomax.Module.Core\Itsomax.Module.Core.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Update="Microsoft.NETCore.App" Version="2.1.0-rc1" />
+    <PackageReference Include="Microsoft.NETCore.App" Version="2.1.0" />
   </ItemGroup>
 </Project>
