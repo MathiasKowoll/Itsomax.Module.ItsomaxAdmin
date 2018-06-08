@@ -1,9 +1,17 @@
-﻿using Itsomax.Module.ItsomaxAdmin.Interfaces;
+﻿using Itsomax.Module.Core.Data;
+using Itsomax.Module.ItsomaxAdmin.Interfaces;
 
 namespace Itsomax.Module.ItsomaxAdmin.Services
 {
-    class ConfigureSystem : IConfigureSystem
+    public class ConfigureSystem : IConfigureSystem
     {
-        //public succ 
+        private readonly ItsomaxDbContext _context;
+
+        public ConfigureSystem(ItsomaxDbContext context)
+        {
+            _context = context;
+        }
+        
+        
     }
 }
