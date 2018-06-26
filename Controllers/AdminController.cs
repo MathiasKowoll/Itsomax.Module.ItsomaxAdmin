@@ -33,13 +33,25 @@ namespace Itsomax.Module.ItsomaxAdmin.Controllers
             return View();
         }
 
+        public IActionResult Configuration()
+        {
+            return View();
+        }
+
+        public IActionResult EmailAddSmtp()
+        {
+            return View();
+        }
+
         public IActionResult TestEmail()
         {
+            IList<string> atachments = new List<string>();
+            atachments.Add("");
             IList<string> emails = new List<string>();
             emails.Add("XXXX@somemail.com");
             var res =_sendEmail.SmtpSendEmail(emails, "test email", "This is a test email using gmail", "smtp.gmail.com",
                 "xxxx@gmail.com", "xxx@gmail.com", "password", true, 587,
-                "xxx@gmail.com");
+                "xxx@gmail.com",atachments);
             
             return View("WelcomePage");
         }

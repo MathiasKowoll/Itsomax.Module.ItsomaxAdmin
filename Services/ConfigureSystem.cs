@@ -12,8 +12,5 @@ namespace Itsomax.Module.ItsomaxAdmin.Services
             _context = context;
         }
         
-        
-        
-        
     }
 }
