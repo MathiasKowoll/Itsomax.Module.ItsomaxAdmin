@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Itsomax.Module.Core.Interfaces;
 using Itsomax.Module.Core.Models;
 using Itsomax.Module.ItsomaxAdmin.Data;
+using Itsomax.Module.ItsomaxAdmin.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Localization;
@@ -15,15 +16,15 @@ namespace Itsomax.Module.ItsomaxAdmin.Controllers
         private readonly IStringLocalizer<AdminController> _localizer;
         private readonly ILogger<AdminController> _logger;
         private readonly IEmailService _sendEmail;
-        private readonly IAdminCustomRepository _adminCustomRepository;
+        private readonly IConfigureSystem _configureSystem;
 
         public AdminController(IStringLocalizer<AdminController> localizer,ILogger<AdminController> logger, 
-            IEmailService sendEmail, IAdminCustomRepository adminCustomRepository)
+            IEmailService sendEmail, IConfigureSystem configureSystem)
         {
             _localizer = localizer;
             _logger = logger;
             _sendEmail = sendEmail;
-            _adminCustomRepository = adminCustomRepository;
+            _configureSystem = configureSystem;
         }
 
         public IActionResult WelcomePage()
@@ -40,14 +41,14 @@ namespace Itsomax.Module.ItsomaxAdmin.Controllers
         public IActionResult Configuration()
         {
             
-            return View(_adminCustomRepository.GetCommonSettings());
+            return View(_configureSystem.GetSystemSettings(false));
         }
         
         [HttpPost, ValidateAntiForgeryToken]
         public IActionResult Configuration(AppSetting model)
         {
             
-            return View(_adminCustomRepository.GetCommonSettings());
+            return View(_configureSystem.GetSystemSettings(false));
         }
 
         public IActionResult EmailAddSmtp()

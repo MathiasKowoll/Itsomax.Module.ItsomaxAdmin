@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using Itsomax.Module.Core.Extensions;
 using Itsomax.Module.Core.Models;
 using Itsomax.Module.ItsomaxAdmin.Data;
@@ -20,6 +21,11 @@ namespace Itsomax.Module.ItsomaxAdmin.Services
             var settings = _adminCustomRepository.GetCommonSettings();
 
             return SystemSucceededTask.Success("Configurations saved successfully");
+        }
+
+        public IList<AppSetting> GetSystemSettings(bool includeImages)
+        {
+            return includeImages == true ? _adminCustomRepository.GetAllSettings() : _adminCustomRepository.GetCommonSettings();
         }
     }
 }

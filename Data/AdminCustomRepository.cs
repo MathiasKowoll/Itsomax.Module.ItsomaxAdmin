@@ -11,7 +11,7 @@ namespace Itsomax.Module.ItsomaxAdmin.Data
 
         public IList<AppSetting> GetCommonSettings()
         {
-            return Context.Set<AppSetting>().Where(x => !x.Key.Contains("System")).ToList();
+            return Context.Set<AppSetting>().Where(x => !x.Key.Contains("Logo") && !x.Key.Contains("Image")).ToList();
         }
 
         public IList<AppSetting> GetAllSettings()
