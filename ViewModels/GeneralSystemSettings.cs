@@ -1,14 +1,14 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using Itsomax.Module.Core.Models;
 
 namespace Itsomax.Module.ItsomaxAdmin.ViewModels
 {
 
     public class SetSystemInfoViewModel
     {
-        public string KeySystemTitle { get; set; }
-        public string ValueSystemTitle { get; set; }
-        public string LoginText { get; set; }
-        public string LoginImageUrl { get; set; }
+        public IList<AppSetting> AppSettings { get; set; }
+        public IList<AppSetting> ImageConfig { get; set; }
     }
 
     public abstract class GenericEmailSend
@@ -48,7 +48,7 @@ namespace Itsomax.Module.ItsomaxAdmin.ViewModels
     {
         [MaxLength(100)]
         public string Name { get; set; }
-        [MaxLength(200)]
+        [MaxLength(200)] 
         public string SmtpServer { get; set; }
         [MaxLength(200)]
         public string FromEmail { get; set; }

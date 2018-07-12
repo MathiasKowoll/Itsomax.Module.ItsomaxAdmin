@@ -8,5 +8,7 @@ namespace Itsomax.Module.ItsomaxAdmin.Data
     {
         IList<AppSetting> GetCommonSettings();
         IList<AppSetting> GetAllSettings();
+        AppSetting GetSystemDefaultPage();
+        AppSetting GetSystemConfigByName(string key);
     }
 }
