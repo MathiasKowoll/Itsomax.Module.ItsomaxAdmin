@@ -1,8 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Itsomax.Module.Core.Data;
-using Itsomax.Module.Core.Extensions;
 using Itsomax.Module.Core.Models;
 
 namespace Itsomax.Module.ItsomaxAdmin.Data
