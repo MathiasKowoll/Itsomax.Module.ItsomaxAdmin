@@ -15,7 +15,7 @@
                         @foreach (var item in @Model.AppSettings)
                         {
                             <div class="form-group row">
-                                <label for="settings" class="col-sm-2 text-right">@item.Key</label>
+                                <label class="col-sm-2 text-right">@item.Key</label>
                                 <div class="col-sm-4">
                                     <div class="input-group" lang="en-US">
                                         <input name="key" type="hidden" class="form-control" value="@item.Key">
