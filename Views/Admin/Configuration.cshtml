@@ -15,8 +15,8 @@
                         @foreach (var item in @Model.AppSettings)
                         {
                             <div class="form-group row">
-                                <label class="col-sm-2 text-right">@item.Key</label>
-                                <div class="col-sm-4">
+                                <label class="col-sm-3 text-right">@item.KeyName</label>
+                                <div class="col-sm-9">
                                     <div class="input-group" lang="en-US">
                                         <input name="key" type="hidden" class="form-control" value="@item.Key">
                                         <input name="value" type="text" class="form-control" value="@item.Value" />

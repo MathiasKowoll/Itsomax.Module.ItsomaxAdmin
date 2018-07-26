@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Itsomax.Module.Core.Data;
+using Itsomax.Module.Core.Extensions.CommonHelpers;
 using Itsomax.Module.Core.Models;
+using Itsomax.Module.Core.ViewModels;
 
 namespace Itsomax.Module.ItsomaxAdmin.Data
 {
@@ -9,15 +11,31 @@ namespace Itsomax.Module.ItsomaxAdmin.Data
     {
         public AdminCustomRepository(ItsomaxDbContext context) : base(context){}
 
-        public IList<AppSetting> GetCommonSettings()
+        public IList<AppSettingModels> GetCommonSettings()
         {
             return Context.Set<AppSetting>().Where(x => !x.Key.Contains("Logo") && !x.Key.Contains("Image"))
-                .OrderBy(x => x.Key).ToList();
+                .OrderBy(x => x.Key)
+                .Select(x => new AppSettingModels()
+                {
+                    Key = x.Key,
+                    Value = x.Value,
+                    SettingType = x.SettingType,
+                    KeyName = StringHelperClass.CamelSplit(x.Key)
+                }).ToList();
         }
 
-        public IList<AppSetting> GetAllSettings()
+        public IList<AppSettingModels> GetAllSettings()
         {
-            return Context.Set<AppSetting>().OrderBy(x => x.Key).ToList();
+            return Context.Set<AppSetting>()
+                .OrderBy(x => x.Key)
+                .Select(x => new AppSettingModels()
+                {
+                    Key = x.Key,
+                    Value = x.Value,
+                    SettingType = x.SettingType,
+                    KeyName = StringHelperClass.CamelSplit(x.Key)
+
+                }).ToList();
         }
 
         public AppSetting GetSystemDefaultPage()

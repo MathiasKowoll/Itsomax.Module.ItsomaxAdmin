@@ -1,14 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using Itsomax.Module.Core.Models;
+using Itsomax.Module.Core.ViewModels;
 
 namespace Itsomax.Module.ItsomaxAdmin.ViewModels
 {
 
     public class SetSystemInfoViewModel
     {
-        public IList<AppSetting> AppSettings { get; set; }
-        public IList<AppSetting> ImageConfig { get; set; }
+        public IList<AppSettingModels> AppSettings { get; set; }
+        public IList<AppSettingModels> ImageConfig { get; set; }
     }
 
     public abstract class GenericEmailSend

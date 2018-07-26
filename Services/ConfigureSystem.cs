@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Itsomax.Module.Core.Extensions;
 using Itsomax.Module.Core.Interfaces;
-using Itsomax.Module.Core.Models;
+using Itsomax.Module.Core.ViewModels;
 using Itsomax.Module.ItsomaxAdmin.Data;
 using Itsomax.Module.ItsomaxAdmin.Interfaces;
+
 
 namespace Itsomax.Module.ItsomaxAdmin.Services
 {
@@ -45,7 +46,7 @@ namespace Itsomax.Module.ItsomaxAdmin.Services
             
         }
 
-        public IList<AppSetting> GetSystemSettings(bool includeImages)
+        public IList<AppSettingModels> GetSystemSettings(bool includeImages)
         {
             return includeImages == true ? _adminCustomRepository.GetAllSettings() : _adminCustomRepository.GetCommonSettings();
         }

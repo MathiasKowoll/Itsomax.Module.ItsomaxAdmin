@@ -54,7 +54,7 @@ namespace Itsomax.Module.ItsomaxAdmin.Controllers
             return View();
         }
         
-        [Authorize("Admin")]
+        [Authorize(Roles = "Admin")]
         [Route("/Configuration/GlobalSettings")]
         public IActionResult Configuration()
         {
