@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using Itsomax.Module.Core.Extensions;
-using Itsomax.Module.Core.Models;
 using Itsomax.Module.Core.ViewModels;
 
 namespace Itsomax.Module.ItsomaxAdmin.Interfaces
