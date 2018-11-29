@@ -1,6 +1,7 @@
 {
-  "name": "itsomaxadmin",
-  "fullName": "Itsomax.Module.ItsomaxAdmin",
+  "id": "Itsomax.Module.ItsomaxAdmin",
+  "name": "ItsomaxAdmin",
   "version": "1.0.0",
-  "project":  "All" 
+  "isBundledWithHost": false,
+  "project":  "All"
 }
