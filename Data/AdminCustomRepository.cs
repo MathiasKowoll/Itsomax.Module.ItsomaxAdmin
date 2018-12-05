@@ -19,7 +19,6 @@ namespace Itsomax.Module.ItsomaxAdmin.Data
                 {
                     Key = x.Key,
                     Value = x.Value,
-                    SettingType = x.SettingType,
                     KeyName = StringHelperClass.CamelSplit(x.Key)
                 }).ToList();
         }
@@ -32,7 +31,6 @@ namespace Itsomax.Module.ItsomaxAdmin.Data
                 {
                     Key = x.Key,
                     Value = x.Value,
-                    SettingType = x.SettingType,
                     KeyName = StringHelperClass.CamelSplit(x.Key)
 
                 }).ToList();
