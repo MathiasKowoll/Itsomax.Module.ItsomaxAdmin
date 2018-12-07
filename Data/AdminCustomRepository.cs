@@ -1,9 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Xml.Linq;
 using Itsomax.Module.Core.Data;
 using Itsomax.Module.Core.Extensions.CommonHelpers;
 using Itsomax.Module.Core.Models;
 using Itsomax.Module.Core.ViewModels;
+using Itsomax.Module.ItsomaxAdmin.ViewModels;
+using Microsoft.EntityFrameworkCore.Query.Expressions;
+using NPOI.SS.Formula.Functions;
 
 namespace Itsomax.Module.ItsomaxAdmin.Data
 {
@@ -27,7 +31,7 @@ namespace Itsomax.Module.ItsomaxAdmin.Data
         {
             return Context.Set<AppSetting>()
                 .OrderBy(x => x.Key)
-                .Select(x => new AppSettingModels()
+                .Select(x => new AppSettingModels
                 {
                     Key = x.Key,
                     Value = x.Value,
@@ -36,9 +40,29 @@ namespace Itsomax.Module.ItsomaxAdmin.Data
                 }).ToList();
         }
 
-        public AppSetting GetSystemDefaultPage()
+        public UserAppSettingViewModel GetSystemDefaultPage(long id)
         {
-            return Context.Set<AppSetting>().FirstOrDefault(x => x.Key == "SystemDefaultPage");
+
+            var userSetting =
+                from uas in Context.Set<UserAppSetting>()
+                join usd in Context.Set<UserSettingDetail>() on uas.Id equals usd.UserAppSettingId into setDet
+                from sd in setDet.DefaultIfEmpty()
+                where sd.UserId == id && uas.Key == "SystemDefaultPage"
+                select new UserAppSettingViewModel
+                {
+                    Key = uas.Key,
+                    Value = sd.Value ?? ""
+                };
+
+            if (userSetting.Any()) return userSetting.FirstOrDefault();
+            var model = new UserAppSettingViewModel
+            {
+                Key = "SystemDefaultPage",
+                Value = ""
+            };
+
+            return model;
+
         }
 
         public AppSetting GetSystemConfigByName(string key)

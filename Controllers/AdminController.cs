@@ -36,7 +36,8 @@ namespace Itsomax.Module.ItsomaxAdmin.Controllers
 
         public IActionResult Index()
         {
-            var customPage = _adminCustomRepository.GetSystemDefaultPage();
+            var userId = GetCurrentUserAsync().Result.Id;
+            var customPage = _adminCustomRepository.GetSystemDefaultPage(userId);
             return Redirect(customPage.Value == "" ? "/Admin/Welcome" : customPage.Value);
         }
 

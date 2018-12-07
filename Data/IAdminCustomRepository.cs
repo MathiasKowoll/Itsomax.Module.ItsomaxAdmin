@@ -2,6 +2,7 @@
 using Itsomax.Data.Infrastructure.Data;
 using Itsomax.Module.Core.Models;
 using Itsomax.Module.Core.ViewModels;
+using Itsomax.Module.ItsomaxAdmin.ViewModels;
 
 namespace Itsomax.Module.ItsomaxAdmin.Data
 {
@@ -9,7 +10,7 @@ namespace Itsomax.Module.ItsomaxAdmin.Data
     {
         IList<AppSettingModels> GetCommonSettings();
         IList<AppSettingModels> GetAllSettings();
-        AppSetting GetSystemDefaultPage();
+        UserAppSettingViewModel GetSystemDefaultPage(long id);
         AppSetting GetSystemConfigByName(string key);
     }
 }
