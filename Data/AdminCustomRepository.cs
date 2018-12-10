@@ -1,13 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using System.Xml.Linq;
 using Itsomax.Module.Core.Data;
 using Itsomax.Module.Core.Extensions.CommonHelpers;
 using Itsomax.Module.Core.Models;
 using Itsomax.Module.Core.ViewModels;
 using Itsomax.Module.ItsomaxAdmin.ViewModels;
-using Microsoft.EntityFrameworkCore.Query.Expressions;
-using NPOI.SS.Formula.Functions;
 
 namespace Itsomax.Module.ItsomaxAdmin.Data
 {

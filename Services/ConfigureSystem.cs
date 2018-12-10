@@ -7,7 +7,6 @@ using Itsomax.Module.Core.ViewModels;
 using Itsomax.Module.ItsomaxAdmin.Data;
 using Itsomax.Module.ItsomaxAdmin.Interfaces;
 
-
 namespace Itsomax.Module.ItsomaxAdmin.Services
 {
     public class ConfigureSystem : IConfigureSystem
